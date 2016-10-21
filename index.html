@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <link rel="stylesheet" href="style.css" />
     <title>Pseudo Intelligence Test</title>
     <script type="text/javascript" src="intelligence_test.js"></script>
   </head>
   <body>
     <!-- Author: Shelley Wong -->
-    <div style="float:left; width:3%">
+    <div style="float:left; width:7%">
       <p>&nbsp;</p>
     </div>
-    <div style="float:left; width:50%">
-      <h1>Question 1</h1>
-      <p>8 + 3 = 1314</p>
-      <p>7 + 6 = 1530</p>
-      <p>3 + 5 = 108</p>
-      <p>9 + 11 = 2280</p>
-      <p>5 + 2 = 94</p>
+    <div style="float:left; width:40%">
+      <h1 class="headingstyle"><u>Question 1</u></h1>
+      <div class="textstyle">
+        <p>8 + 3 = 1314</p>
+        <p>7 + 6 = 1530</p>
+        <p>3 + 5 = 108</p>
+        <p>9 + 11 = 2280</p>
+        <p>5 + 2 = 94</p>
+      </div>
     </div>
-    <div style="float:left; width:3%">
+    <div style="float:left; width:40%">
       <p>&nbsp;</p>
-    </div>
-    <div style="float:left; width:45%">
-      <p>Your turn to try:</p>
-
+      <p>&nbsp;</p>
+      <h1 class="headingstyle">Your turn to try:</h1>
+      <form>
+        <p class="textstyle">1 + 10 = <input type="text" id="userAnswer" size="20"
+          placeholder="myanswer" onchange="question1()"></p>
+        <button type="button" onclick="question1()" class="buttonstyle">Submit</button>
+      </form>
+      <p id="incorrect" class="textstyle">
+        Your answer is...
+      </p>
     </div>
   </body>
 </html>

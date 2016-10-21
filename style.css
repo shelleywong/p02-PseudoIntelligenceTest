@@ -1,4 +1,23 @@
 /* Author: Shelley Wong */
 body{
-  background-color: beige;
+  background-color: midnightblue;
+}
+
+.headingstyle{
+  color: khaki;
+  font-size: 40px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.textstyle{
+  color: lightyellow;
+  font-size: 30px;
+  font-family: "Century Schoolbook", serif;
+}
+
+.buttonstyle{
+  color: midnightblue;
+  background-color: khaki;
+  font-size: 25px;
+  font-family: "Century Schoolbook", serif;
 }
