@@ -1,6 +1,6 @@
 /* Author: Shelley Wong */
 body{
-  background-color: midnightblue;
+  background-image: url("http://wallpaper.zone/img/605157.jpg");
 }
 
 .headingstyle{
@@ -19,5 +19,11 @@ body{
   color: midnightblue;
   background-color: khaki;
   font-size: 25px;
+  font-family: "Century Schoolbook", serif;
+}
+
+.background{
+  color: lightblue;
+  font-size: 15px;
   font-family: "Century Schoolbook", serif;
 }
