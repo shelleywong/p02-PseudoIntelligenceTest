@@ -27,5 +27,13 @@ function question3(){
 }
 
 function newPage(){
-  window.location.href="question2.html";
+  window.location.href="page2.html";
+}
+
+function nextNewPage(){
+  window.location.href="page3.html";
+}
+
+function resultsPage(){
+  window.location.href="results.html";
 }
