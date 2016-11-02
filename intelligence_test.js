@@ -1,6 +1,6 @@
 // Author: Shelley Wong
 var totalCorrect = 0; //global variable to count number of correct answers
-var pageCorrect = 0; //reset to 0 for each page; only 1pt awarded per page
+var pageCorrect = 0; //each pg starts at 0/false; assign 1/true value if answered correctly
 
 function question1(){
   var answerSubmitted = document.getElementById("userAnswer").value;
@@ -72,20 +72,13 @@ function question3(){
       + " number; please try again!";
   }
 }
-/*
+
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname,cvalue,expdate){
   var d = new Date();
   d.setTime(d.getTime() + (expdate*24*60*60*1000));
   var expires = "expires= " + d.toUTCString();
   document.cookie= cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-*/
-
-//courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
-//without explicit date set, cookie expires when the browser is closed
-function setCookie(cname,cvalue){
-  document.cookie= cname + "=" + cvalue + ";path=/";
 }
 
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
@@ -115,34 +108,17 @@ function checkCookie(){
 }
 
 /*
-  when button for next page is clicked:
+  *newPage() function takes in a string with the filename of the next page
+  *when button for next page is clicked:
   (1) Get cookie and assign it to totalCorrect variable (converted from str to int)
   (2) If question is answered correctly for current page, add a point to totalCorrect
   (3) Set the value of totalCorrect as a cookie before clicking to next page
 */
-function newPage(){
+function newPage(nextPage){
   totalCorrect = parseInt(getCookie("points"));
   if(pageCorrect > 0){
-    totalCorrect += pageCorrect;
+    totalCorrect += 1;
   }
-  setCookie("points",totalCorrect);
-  window.location.href="page2.html";
-}
-
-function nextNewPage(){
-  totalCorrect = parseInt(getCookie("points"));
-  if(pageCorrect > 0){
-    totalCorrect += pageCorrect;
-  }
-  setCookie("points",totalCorrect);
-  window.location.href="page3.html";
-}
-
-function resultsPage(){
-  totalCorrect = parseInt(getCookie("points"));
-  if(pageCorrect > 0){
-    totalCorrect += pageCorrect;
-  }
-  setCookie("points",totalCorrect);
-  window.location.href="results.html";
+  setCookie("points",totalCorrect,1);
+  window.location.href=nextPage;
 }
