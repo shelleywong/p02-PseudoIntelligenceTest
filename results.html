@@ -6,20 +6,16 @@
     <title>Pseudo Intelligence Test</title>
     <script type="text/javascript" src="intelligence_test.js"></script>
   </head>
-  <body>
+  <body onload="checkCookie()">
     <!-- Author: Shelley Wong -->
     <div style="float:left; width:5%">
       <p>&nbsp;</p>
     </div>
     <div style="float:left; width:45%">
       <h1 class="headingstyle"><u>Results:</u></h1>
-      <div class="textstyle">
-        <p id="result"></p>
-        <form>
-          <p>Click the button to see!</p>
-          <input class="buttonstyle" type="button" value="Your Results" onclick="checkCookie()";
-        </form>
-        <p>&nbsp;</p>
+      <div>
+        <p class="textstyle" id="result"></p>
+        <p class="textstyle" id="resultcomment"></p>
       </div>
       <a class="imagesource" href="http://wallpaper.zone/star-sky-background">
         Background Image Source</a>
@@ -30,7 +26,8 @@
     <div style="float:left; width:45%">
       <p>&nbsp;</p>
       <p>&nbsp;</p>
-      <p><a class="textstyle" href="index.html">&rarr; Try Again &larr;</a></p>
+      <p><a class="textstyle nounderline" href="index.html">
+        * * * Try Again * * *</a></p>
       <img src="http://25.media.tumblr.com/tumblr_me85gcbMbP1ri57moo1_500.jpg"
         alt="'Thank you for playing' End Screen Image" style="width:80%"/>
       <p><a class="imagesource"

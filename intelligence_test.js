@@ -1,6 +1,6 @@
 // Author: Shelley Wong
 var totalCorrect = 0; //global variable to count number of correct answers
-var pageCorrect = 0; //each pg starts at 0/false; assign 1/true value if answered correctly
+var pageCorrect = 0; //each pg starts at false; assign true value if answered correctly
 
 function question1(){
   var answerSubmitted = document.getElementById("userAnswer").value;
@@ -17,13 +17,13 @@ function question1(){
   }
   else if(notANum)
   {
-    document.getElementById("output").innerHTML = "The answer must be a number;"
-      + " please try again!"
+    document.getElementById("output").innerHTML = "Incorrect. " +
+      "The answer must be a number; please try again!"
   }
   else
   {
-    document.getElementById("output").innerHTML = "The answer is a different"
-      + " number; please try again!";
+    document.getElementById("output").innerHTML = "Incorrect. " +
+      "The answer is a different number; please try again!";
   }
 }
 
@@ -40,13 +40,13 @@ function question2(){
   }
   else if(!notANum)
   {
-    document.getElementById("output").innerHTML = "The answer must be a string"
-    + " of alphabetic characters; please try again!";
+    document.getElementById("output").innerHTML = "Incorrect. " +
+      "The answer must be a string of alphabetic characters; please try again!";
   }
   else
   {
-    document.getElementById("output").innerHTML = "The answer is a different"
-    + " string of characters; please try again!";
+    document.getElementById("output").innerHTML = "Incorrect. " +
+      "The answer is a different string of characters; please try again!";
   }
 }
 
@@ -63,14 +63,30 @@ function question3(){
   }
   else if(notANum)
   {
-    document.getElementById("output").innerHTML = "The answer must be a number;"
-      + " please try again!"
+    document.getElementById("output").innerHTML = "Incorrect. " +
+      "The answer must be a number; please try again!"
   }
   else
   {
-    document.getElementById("output").innerHTML = "The answer is a different"
-      + " number; please try again!";
+    document.getElementById("output").innerHTML = "Incorrect. " +
+      "The answer is a different number; please try again!";
   }
+}
+
+/*
+  *newPage() function takes in a string with the filename of the next page
+  *when button for next page is clicked:
+  (1) Get cookie and assign it to totalCorrect variable (converted from str to int)
+  (2) If question is answered correctly for current page, add a point to totalCorrect
+  (3) Set the value of totalCorrect as a cookie before clicking to next page
+*/
+function newPage(nextPage){
+  totalCorrect = Number(getCookie("points"));
+  if(pageCorrect > 0){
+    totalCorrect += 1;
+  }
+  setCookie("points",totalCorrect,1);
+  window.location.href=nextPage;
 }
 
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
@@ -104,21 +120,25 @@ function checkCookie(){
   totalCorrect=getCookie("points");
   var percent = totalCorrect/3*100;
   percent = percent.toFixed(0);
-  alert("You scored " + totalCorrect + " out of 3 points: " + percent + "%");
-}
-
-/*
-  *newPage() function takes in a string with the filename of the next page
-  *when button for next page is clicked:
-  (1) Get cookie and assign it to totalCorrect variable (converted from str to int)
-  (2) If question is answered correctly for current page, add a point to totalCorrect
-  (3) Set the value of totalCorrect as a cookie before clicking to next page
-*/
-function newPage(nextPage){
-  totalCorrect = parseInt(getCookie("points"));
-  if(pageCorrect > 0){
-    totalCorrect += 1;
+  document.getElementById("result").innerHTML = "You scored " + totalCorrect +
+    " out of 3 points: " + percent + "%";
+  if(totalCorrect == 0)
+  {
+    document.getElementById("resultcomment").innerHTML = "It's ok, you can try "
+      + "again if you want to.";
   }
-  setCookie("points",totalCorrect,1);
-  window.location.href=nextPage;
+  else if(totalCorrect == 1)
+  {
+    document.getElementById("resultcomment").innerHTML = "Not bad, you can try "
+      + "again if you want to.";
+  }
+  else if(totalCorrect == 2)
+  {
+    document.getElementById("resultcomment").innerHTML = "Good job, you can try "
+      + "again if you want to.";
+  }
+  else
+  {
+    document.getElementById("resultcomment").innerHTML = "Perfect score!";
+  }
 }
