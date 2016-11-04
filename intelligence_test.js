@@ -124,21 +124,26 @@ function checkCookie(){
     " out of 3 points: " + percent + "%";
   if(totalCorrect == 0)
   {
-    document.getElementById("resultcomment").innerHTML = "It's ok, you can try "
-      + "again if you want to.";
+    document.getElementById("resultcomment").innerHTML = "Dude, suckin' at " +
+      "something is the first step to being sorta good at something. " +
+      "~Jake (Adventure Time)";
   }
   else if(totalCorrect == 1)
   {
-    document.getElementById("resultcomment").innerHTML = "Not bad, you can try "
-      + "again if you want to.";
+    document.getElementById("resultcomment").innerHTML = "Sometimes we have to"
+      + " go deep inside ourselves to solve our problems. " +
+      "~Patrick (Spongebob SquarePants)";
   }
   else if(totalCorrect == 2)
   {
-    document.getElementById("resultcomment").innerHTML = "Good job, you can try "
-      + "again if you want to.";
+    document.getElementById("resultcomment").innerHTML = "You can't give up " +
+      "hope just because it's hopeless! You gotta hope even more, and cover " +
+      "your ears, and go: 'Blah blah blah blah blah blah blah blah.' "
+      + "~Fry (Futurama)";
   }
   else
   {
-    document.getElementById("resultcomment").innerHTML = "Perfect score!";
+    document.getElementById("resultcomment").innerHTML = "Time for the charm" +
+      " bomb to explode. ~Tina (Bob's Burgers)";
   }
 }
